@@ -1,0 +1,52 @@
+/* 
+(MINDEST-CSS-Layout: Eigene Schriftart für die Überschrift, passende Bilder, passender Hintergrund - roter Faden erkennbar!)
+*/
+
+@font-face {
+    font-family: 'Starborn';
+    src: url('font/Starborn.ttf') format('truetype');
+}
+
+:root {
+    --background: #f0f0f0;
+    --foreground: #000;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+    padding: 1rem;
+}
+
+h1 {
+    font-family: 'Starborn', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+#image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+    padding: 1rem;
+
+    img {
+        width: 100%;
+        border-radius: 0.5rem;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.6rem;
+}
