@@ -1,5 +1,8 @@
 const imageGrid = document.getElementById("image-grid");
 
+const imagesPerRow = 3;
+let currentRow = 0;
+
 // Placeholder images from https://dev.me/products/image-placeholder
 // Notable mentions: https://placehold.co/, https://picsum.photos/
 const images = [
@@ -20,9 +23,28 @@ const images = [
     { src: "https://via.assets.so/img.jpg?w=400&h=300&gradientFrom=8E2DE2&gradientTo=4A00E0&gradientAngle=135&text=Image+15&f=png", alt: "Image 15" },
 ];
 
-for (const image of images) {
-    const img = document.createElement("img");
-    img.src = image.src;
-    img.alt = image.alt;
-    imageGrid.appendChild(img);
+
+function appendImages() {
+    const lastButton = document.querySelector(".load-more");
+    if (lastButton) {
+        lastButton.remove();
+    }
+
+    for (let i = currentRow * imagesPerRow; i < (currentRow + 1) * imagesPerRow && i < images.length; i++) {
+        const img = document.createElement("img");
+        img.src = images[i].src;
+        img.alt = images[i].alt;
+        imageGrid.appendChild(img);
+    }
+    currentRow++;
+
+    if (currentRow * imagesPerRow < images.length) {
+        const moreButton = document.createElement("button");
+        moreButton.classList.add("load-more");
+        moreButton.textContent = "Load more images";
+        moreButton.addEventListener("click", appendImages);
+        imageGrid.appendChild(moreButton);
+    }
 }
+
+appendImages();

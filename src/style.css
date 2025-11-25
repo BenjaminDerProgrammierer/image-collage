@@ -1,7 +1,3 @@
-/* 
-(MINDEST-CSS-Layout: Eigene Schriftart für die Überschrift, passende Bilder, passender Hintergrund - roter Faden erkennbar!)
-*/
-
 @font-face {
     font-family: 'Starborn';
     src: url('font/Starborn.ttf') format('truetype');
@@ -10,6 +6,10 @@
 :root {
     --background: #f0f0f0;
     --foreground: #000;
+
+    --button-background: #4bbfc7;
+    --button-foreground: #000;
+    --button-background-hover: #96e6a1;
 }
 
 * {
@@ -42,6 +42,22 @@ h1 {
     img {
         width: 100%;
         border-radius: 0.5rem;
+    }
+
+    .load-more {
+        grid-column: span 3;
+        padding: 0.5rem 1rem;
+        background-color: var(--button-background);
+        color: var(--button-foreground);
+        border: none;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: var(--button-background-hover);
+        }
     }
 }
 
